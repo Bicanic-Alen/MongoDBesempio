@@ -13,11 +13,12 @@ router.get('/', function (req, res, next) {
         collection.find().limit(10).toArray((err, result) => {
             if (err) console.log(err.message); //Se c'è qualche errore lo stampo
             else console.log(result);
+            res.send(result);
             client.close(); //Quando ho terminato la find chiudo la sessione con il db
         }); //Eseguo la query e passo una funzione di callback
 
     });
-    res.send('respond with a resource');
+    
 });
 
 module.exports = router;
