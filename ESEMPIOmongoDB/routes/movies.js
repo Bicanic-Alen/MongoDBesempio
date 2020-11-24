@@ -30,7 +30,7 @@ router.get('/list/:num', function (req, res, next) {
     console.log(req.params); //Leggo i parametri passati all'url
     let num = parseInt(req.params.num);
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(foundTitle);
+    client.connect(foundList);
         
         function foundList(err){
             if (err) console.log("connesione al db non riuscita");
@@ -51,9 +51,9 @@ router.get('/year/:num', function (req, res, next) {
     console.log(req.params); //Leggo i parametri passati all'url
     let num = parseInt(req.params.num);
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(foundTitle);
+    client.connect(foundYear);
         
-        function foundList(err){
+        function foundYear(err){
             if (err) console.log("connesione al db non riuscita");
             else{
                 const collection = client.db("sample_mflix").collection("movies");
@@ -72,9 +72,9 @@ router.get('/rating/:num', function (req, res, next) {
     console.log(req.params); //Leggo i parametri passati all'url
     let num = parseInt(req.params.num);
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(foundTitle);
+    client.connect(foundRating);
         
-        function foundList(err){
+        function foundRating(err){
             if (err) console.log("connesione al db non riuscita");
             else{
                 const collection = client.db("sample_mflix").collection("movies");
