@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   title = 'mflix-visualizer';
   results : Object[];
   obs : Observable<object>;
-  constructor(private http : HttpClient){}
+  constructor(private http : HttpClient , private sanitizer: DomSanitizer){}
 
   load10Movies()
   {
@@ -23,4 +24,9 @@ export class AppComponent {
   getData = (data) => {
     this.results = data;
   }
+
+  photoURL(urltoSanitize) {
+    console.log(urltoSanitize);
+    return this.sanitizer.bypassSecurityTrustUrl(urltoSanitize);
+}
 }
