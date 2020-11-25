@@ -17,7 +17,7 @@ export class AppComponent {
 
   load10Movies()
   {
-    this.obs = this.http.get("https://3000-a76baad6-c95c-4b9c-933e-859770c2218f.ws-eu01.gitpod.io/movies/list/10");
+    this.obs = this.http.get("https://3000-d2a76fca-e5fb-4a30-8c39-c7fe76e63d3c.ws-eu01.gitpod.io/movies/list/10");
     this.obs.subscribe(this.getData);
   }
 
@@ -27,6 +27,14 @@ export class AppComponent {
 
   photoURL(urltoSanitize) {
     console.log(urltoSanitize);
+    if (urltoSanitize ==undefined)
+    {
+      return false
+    }
     return this.sanitizer.bypassSecurityTrustUrl(urltoSanitize);
-}
+  }
+
+
+
+
 }

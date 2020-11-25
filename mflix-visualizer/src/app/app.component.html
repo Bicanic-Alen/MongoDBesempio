@@ -3,12 +3,13 @@
 
 <div class = 'card-columns'>
   <div *ngFor="let movie of results" class='card'>
-    <img class='card-img-top' [src]="photoURL(movie.poster)" alt='movie poster'>
+    <div *ngIf="photoURL(movie.poster) != false"><img class="card-img-top" [src]="photoURL(movie.poster)"></div>
+    <div *ngIf="photoURL(movie.poster) == false"><div class="alert alert-primary" role="alert"><b>Info! </b>poster mancante</div></div>
     <div class='card-title text-center'>
       <h4 class = 'card-title'>{{movie.title}}</h4>
       <p class='card-text'>{{movie.fullplot}}</p>
     </div>
-    
+
   </div>
 </div>
 
