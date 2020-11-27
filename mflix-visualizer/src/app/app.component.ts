@@ -17,7 +17,15 @@ export class AppComponent {
 
   load10Movies()
   {
-    this.obs = this.http.get("https://3000-d2a76fca-e5fb-4a30-8c39-c7fe76e63d3c.ws-eu01.gitpod.io/movies/list/10");
+    this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/movies/list/10");
+    this.obs.subscribe(this.getData);
+  }
+  loadMoviesOf2000(){
+    this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/movies/year/2000");
+    this.obs.subscribe(this.getData);
+  }
+  loadMoviesOfTomCruise(){
+    this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/advanced-search/actors/Tom Cruise");
     this.obs.subscribe(this.getData);
   }
 
