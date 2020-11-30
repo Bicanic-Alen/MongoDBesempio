@@ -19,7 +19,14 @@
     </ul>
   </div>
 </nav>
-
+<div>
+</div>
+<div *ngIf = "loading == true">
+  <div class = 'centro'>
+    <img src="https://web.signer.digital/Images/summarywait.gif" alt="loading">
+  </div>
+</div>
+<div *ngIf = "loading == false">
 <div class = 'card-columns'>
   <div *ngFor="let movie of results" class='card'>
     <div *ngIf="photoURL(movie.poster) != false"><img class="card-img-top" [src]="photoURL(movie.poster)"></div>
@@ -31,4 +38,4 @@
 
   </div>
 </div>
-
+</div>

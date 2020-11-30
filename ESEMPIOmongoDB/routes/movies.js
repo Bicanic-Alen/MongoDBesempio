@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const MongoClient = require('mongodb').MongoClient; //Importo la libreria mongodb
+
 const uri = 'mongodb+srv://alen_bicanic:KPgZbP7MWt061Quk@cluster1.8ojbw.mongodb.net/Cluster1?retryWrites=true&w=majority'
 
 /* GET users listing. */

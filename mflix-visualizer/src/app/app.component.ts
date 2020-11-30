@@ -13,23 +13,28 @@ export class AppComponent {
   title = 'mflix-visualizer';
   results : Object[];
   obs : Observable<object>;
+  loading : boolean;
   constructor(private http : HttpClient , private sanitizer: DomSanitizer){}
 
   load10Movies()
   {
+    this.loading = true
     this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/movies/list/10");
     this.obs.subscribe(this.getData);
   }
   loadMoviesOf2000(){
+    this.loading = true
     this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/movies/year/2000");
     this.obs.subscribe(this.getData);
   }
   loadMoviesOfTomCruise(){
+    this.loading = true
     this.obs = this.http.get("https://3000-e7d9ded5-365c-40d3-bab6-1d4604d94e2f.ws-eu01.gitpod.io/advanced-search/actors/Tom Cruise");
     this.obs.subscribe(this.getData);
   }
 
   getData = (data) => {
+    this.loading = false
     this.results = data;
   }
 
